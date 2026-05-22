@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio — Daniel Stiven Olarte Fernández</title>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#ffffff;--sf:#f7f7f7;--sf2:#eeeeee;--bd:#e0e0e0;--bd2:#cccccc;
+--tx:#0a0a0a;--mt:#888888;--ac:#0a0a0a;--fn:'Plus Jakarta Sans',sans-serif;
+--fh:'Syne',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--tx);font-family:var(--fn);overflow-x:hidden;padding-left:220px;}
+nav{position:fixed;top:0;left:0;bottom:0;width:220px;z-index:100;padding:2.5rem 1.8rem;display:flex;flex-direction:column;align-items:flex-start;gap:0;background:#fff;border-right:1px solid var(--bd);}
+.nav-logo{font-family:var(--fh);font-size:.78rem;color:var(--mt);letter-spacing:.05em;margin-bottom:2.5rem;}
+.nav-logo strong{color:var(--tx);display:block;font-size:1rem;margin-bottom:.15rem;}
+.nav-links{display:flex;flex-direction:column;gap:.15rem;list-style:none;width:100%;}
+.nav-links a{font-size:.78rem;color:var(--mt);text-decoration:none;transition:all .2s;padding:.45rem .6rem;border-radius:2px;display:block;}
+.nav-links a:hover,.nav-links a.active{color:var(--tx);font-weight:600;background:var(--sf);}
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:0 3rem;}
+section{padding:4rem 0;}
+.lbl{font-family:var(--fm);font-size:.62rem;color:var(--mt);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem;}
+.lbl::before{content:'';width:18px;height:1px;background:var(--mt);}
+h2{font-family:var(--fh);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:2.5rem;color:var(--tx);}
+.div{height:1px;background:var(--bd);position:relative;z-index:1;}
+/* HERO */
+#inicio{min-height:100vh;display:grid;grid-template-columns:1fr 300px;border-bottom:1px solid var(--bd);}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:4rem 3rem 4rem 0;border-right:1px solid var(--bd);}
+.hero-right{display:flex;flex-direction:column;justify-content:flex-end;padding:4rem 0 4rem 2.5rem;gap:2rem;}
+.hero-ey{font-family:var(--fm);font-size:.65rem;color:var(--mt);letter-spacing:.18em;text-transform:uppercase;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;}
+.hero-ey::before{content:'';width:18px;height:1px;background:var(--mt);}
+.hero-n{font-family:var(--fh);font-size:clamp(3rem,6.5vw,6rem);font-weight:800;letter-spacing:-.04em;line-height:.9;margin-bottom:1.75rem;}
+.hero-n .l2{color:var(--mt);font-weight:400;display:block;}
+.hero-bot{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--bd);}
+.hero-meta{display:flex;flex-direction:column;gap:.65rem;}
+.hm{font-size:.78rem;color:var(--mt);padding-bottom:.65rem;border-bottom:1px solid var(--bd);}
+.hm strong{display:block;font-size:.62rem;font-family:var(--fm);font-weight:400;color:var(--mt);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.1rem;}
+.hero-strip{display:flex;flex-direction:column;gap:.5rem;}
+.hs-item{font-family:var(--fm);font-size:.6rem;color:var(--mt);letter-spacing:.12em;text-transform:uppercase;}
+.sbadge{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--fm);font-size:.62rem;color:var(--mt);border:1px solid var(--bd);padding:.28rem .65rem;border-radius:2px;}
+.sdot{width:5px;height:5px;border-radius:50%;animation:blink 2s infinite;}
+.sdot.green{background:#5ab86c;}
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--tx);color:#ffffff;font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.06em;text-decoration:none;padding:.75rem 1.6rem;border-radius:2px;transition:opacity .2s;}
+.btn:hover{opacity:.8;}
+.btn-ol{background:transparent;border:1px solid var(--bd2);color:var(--mt);font-family:var(--fn);font-size:.78rem;font-weight:500;padding:.7rem 1.3rem;border-radius:2px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:.4rem;}
+.btn-ol:hover{background:var(--sf2);color:var(--tx);border-color:var(--bd2);}
+/* ABOUT */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));border:1px solid var(--bd);border-radius:4px;overflow:hidden;margin-bottom:2.5rem;}
+.ic{padding:1.4rem;border-right:1px solid var(--bd);border-bottom:1px solid var(--bd);}
+.ic:last-child{border-right:none;}
+.ic-l{font-family:var(--fm);font-size:.62rem;color:var(--mt);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.35rem;}
+.ic-v{font-size:.88rem;font-weight:500;line-height:1.3;}
+.team-lbl{font-family:var(--fm);font-size:.62rem;color:var(--mt);letter-spacing:.18em;text-transform:uppercase;margin-bottom:.9rem;}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:4px;overflow:hidden;}
+.tc{background:var(--sf);padding:1.1rem 1.4rem;display:flex;align-items:center;gap:.9rem;}
+.tc:hover{background:var(--sf2);}
+.ti{width:34px;height:34px;border-radius:50%;background:var(--sf2);border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-size:.72rem;font-weight:500;color:var(--mt);flex-shrink:0;}
+.tc.me .ti{background:var(--tx);color:#ffffff;border-color:var(--tx);}
+.tn{font-family:var(--fh);font-size:.83rem;font-weight:700;margin-bottom:.15rem;line-height:1.3;}
+.tc-code{font-family:var(--fm);font-size:.62rem;color:var(--mt);}
+/* PROJECTS */
+.plist{display:flex;flex-direction:column;border:1px solid var(--bd);border-radius:4px;overflow:hidden;}
+.pc{background:var(--sf);border-bottom:1px solid var(--bd);}
+.pc:last-child{border-bottom:none;}
+.pch{display:flex;align-items:center;gap:1.4rem;padding:1.75rem 2rem;cursor:pointer;transition:background .15s;user-select:none;}
+.pch:hover{background:var(--sf2);}
+.pnum{font-family:var(--fm);font-size:.68rem;color:var(--mt);letter-spacing:.1em;width:28px;flex-shrink:0;}
+.pcc{flex:1;}
+.pst{display:inline-flex;align-items:center;gap:.35rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.12em;padding:.22rem .6rem;border-radius:2px;margin-bottom:.5rem;text-transform:uppercase;}
+.done{background:rgba(0,0,0,.04);color:#3a7a3a;border:1px solid rgba(0,0,0,.12);}
+.wip{background:rgba(0,0,0,.04);color:var(--mt);border:1px solid rgba(0,0,0,.12);}
+.pt{font-family:var(--fh);font-size:1.05rem;font-weight:700;letter-spacing:-.02em;margin-bottom:.25rem;}
+.ps{font-family:var(--fm);font-size:.66rem;color:var(--mt);}
+.pchev{width:26px;height:26px;border:1px solid var(--bd);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--mt);flex-shrink:0;transition:all .2s;font-size:.9rem;}
+.pc.open .pchev{background:var(--tx);border-color:var(--tx);color:#ffffff;transform:rotate(45deg);}
+.pb{display:none;padding:0 2rem 2rem;border-top:1px solid var(--bd);}
+.pc.open .pb{display:block;}
+.pbi{padding-top:1.75rem;display:grid;grid-template-columns:1fr 1fr;gap:2.2rem;}
+.pbd{font-size:.9rem;color:var(--mt);line-height:1.8;margin-bottom:1.5rem;}
+.sl{font-family:var(--fm);font-size:.6rem;color:var(--mt);letter-spacing:.15em;text-transform:uppercase;margin-bottom:.65rem;display:flex;align-items:center;gap:.4rem;}
+.sl::before{content:'';width:10px;height:1px;background:var(--mt);}
+/* APP LIST */
+.alist{display:flex;flex-direction:column;border:1px solid var(--bd);border-radius:3px;overflow:hidden;margin-bottom:1.5rem;}
+.ar{display:flex;gap:.9rem;padding:.8rem .95rem;border-bottom:1px solid var(--bd);background:var(--bg);transition:background .15s;}
+.ar:last-child{border-bottom:none;}
+.ar:hover{background:var(--sf2);}
+.an{font-family:var(--fm);font-size:.6rem;color:var(--mt);flex-shrink:0;padding-top:2px;width:18px;}
+.ant{font-size:.82rem;font-weight:600;margin-bottom:.12rem;}
+.asp{font-family:var(--fm);font-size:.6rem;color:var(--mt);}
+/* METRICS */
+.mets{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--bd);border-radius:3px;overflow:hidden;margin-bottom:1.5rem;}
+.met{padding:1.1rem .7rem;text-align:center;border-right:1px solid var(--bd);background:var(--bg);}
+.met:last-child{border-right:none;}
+.mv{font-family:var(--fm);font-size:1.2rem;font-weight:500;display:block;}
+.ml{font-size:.65rem;color:var(--mt);margin-top:.15rem;}
+/* IMAGES */
+.img-real{width:100%;border-radius:3px;border:1px solid var(--bd);display:block;}
+.img-caption{font-family:var(--fm);font-size:.6rem;color:var(--mt);margin-top:.4rem;letter-spacing:.04em;line-height:1.5;}
+.img-wrap{margin-bottom:1.1rem;}
+.img-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;margin-bottom:1.1rem;}
+.img-ph{background:var(--sf2);border:1px dashed var(--bd2);border-radius:3px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;padding:1.75rem 1.25rem;text-align:center;}
+.img-ph-t{font-family:var(--fm);font-size:.62rem;color:var(--mt);letter-spacing:.08em;}
+.img-ph-h{font-size:.68rem;color:var(--mt);opacity:.7;line-height:1.5;}
+/* TIMELINE */
+.tl{position:relative;padding-left:1.4rem;}
+.tl::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:var(--bd);}
+.tli{position:relative;padding-bottom:1.35rem;}
+.tli::before{content:'';position:absolute;left:-1.15rem;top:6px;width:8px;height:8px;border-radius:50%;border:1.5px solid var(--bd2);background:var(--bg);}
+.tli.done::before{background:var(--ac);border-color:var(--ac);}
+.tw{font-family:var(--fm);font-size:.6rem;color:var(--mt);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.18rem;}
+.tt{font-size:.82rem;font-weight:600;margin-bottom:.18rem;}
+.td{font-size:.76rem;color:var(--mt);line-height:1.6;}
+/* DELIVERABLES */
+.dlist{display:flex;flex-direction:column;}
+.di{display:flex;gap:.7rem;align-items:flex-start;font-size:.78rem;color:var(--mt);line-height:1.5;padding:.45rem 0;border-bottom:1px solid var(--bd);}
+.di:last-child{border-bottom:none;}
+.dn{font-family:var(--fm);font-size:.58rem;color:var(--mt);flex-shrink:0;padding-top:2px;}
+.di.ok .dn{color:#2a6b3a;}
+.di.ok{color:var(--tx);}
+/* TAGS */
+.tags{display:flex;flex-wrap:wrap;gap:.35rem;}
+.tag{font-family:var(--fm);font-size:.6rem;padding:.22rem .55rem;background:var(--sf2);border:1px solid var(--bd);border-radius:2px;color:var(--mt);}
+/* FULL ROW */
+.pfull{padding-top:1.4rem;margin-top:1.4rem;border-top:1px solid var(--bd);}
+/* BOM TABLE */
+.bom{width:100%;border-collapse:collapse;font-size:.75rem;margin-bottom:1.25rem;}
+.bom th{font-family:var(--fm);font-size:.6rem;color:var(--mt);letter-spacing:.1em;text-transform:uppercase;padding:.5rem .75rem;border-bottom:1px solid var(--bd);text-align:left;background:var(--bg);}
+.bom td{padding:.5rem .75rem;border-bottom:1px solid var(--bd);color:var(--mt);}
+.bom td:first-child{color:var(--tx);font-weight:500;}
+.bom tr:last-child td{border-bottom:none;}
+/* DFM LIST */
+.dfm{display:flex;flex-direction:column;gap:.5rem;}
+.dfm-item{display:flex;gap:.75rem;align-items:flex-start;padding:.65rem .9rem;background:var(--bg);border:1px solid var(--bd);border-radius:3px;font-size:.8rem;color:var(--mt);line-height:1.6;}
+.dfm-n{font-family:var(--fm);font-size:.6rem;color:var(--tx);flex-shrink:0;font-weight:600;padding-top:1px;}
+/* ANOMALÍAS */
+.anom-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:3px;overflow:hidden;margin-bottom:1.5rem;}
+.anom-cell{background:var(--bg);padding:1.1rem 1.2rem;}
+.anom-t{font-size:.82rem;font-weight:700;margin-bottom:.3rem;}
+.anom-sub{font-family:var(--fm);font-size:.6rem;color:var(--mt);margin-bottom:.4rem;letter-spacing:.06em;}
+.anom-d{font-size:.75rem;color:var(--mt);line-height:1.55;}
+/* MODULES */
+.mods{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.5rem;}
+.mod{display:flex;gap:1rem;align-items:flex-start;padding:.7rem .9rem;border:1px solid var(--bd);border-radius:3px;background:var(--bg);}
+.mod-n{font-family:var(--fm);font-size:.6rem;color:var(--tx);font-weight:600;flex-shrink:0;width:28px;}
+.mod-t{font-size:.8rem;font-weight:600;margin-bottom:.15rem;}
+.mod-d{font-size:.74rem;color:var(--mt);line-height:1.5;}
+/* TOOLS */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:4px;overflow:hidden;}
+.tc2{background:var(--sf);padding:1.2rem;transition:background .15s;}
+.tc2:hover{background:var(--sf2);}
+.tc2-n{font-family:var(--fh);font-size:.84rem;font-weight:700;margin-bottom:.15rem;}
+.tc2-t{font-family:var(--fm);font-size:.6rem;color:var(--mt);}
+/* CONTACT */
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;}
+.cdesc{font-size:.92rem;color:var(--mt);line-height:1.8;margin-bottom:1.75rem;}
+.clist{display:flex;flex-direction:column;gap:.65rem;}
+.ci{display:flex;align-items:center;gap:.65rem;font-size:.78rem;color:var(--mt);font-family:var(--fm);}
+.ci-i{width:26px;height:26px;border:1px solid var(--bd);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;}
+.form{display:flex;flex-direction:column;gap:.9rem;}
+.fg{display:flex;flex-direction:column;gap:.3rem;}
+.fl{font-family:var(--fm);font-size:.6rem;color:var(--mt);letter-spacing:.1em;text-transform:uppercase;}
+.fi,.fta{background:var(--sf);border:1px solid var(--bd);border-radius:2px;padding:.65rem .85rem;font-family:var(--fn);font-size:.86rem;color:var(--tx);outline:none;transition:border-color .2s;width:100%;}
+.fi:focus,.fta:focus{border-color:var(--tx);}
+.fta{min-height:88px;resize:vertical;}
+footer{position:relative;z-index:1;border-top:1px solid var(--bd);padding:1.8rem 3rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;}
+.fl2{font-family:var(--fm);font-size:.66rem;color:var(--mt);letter-spacing:.06em;}
+.fade-in{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.fade-in.visible{opacity:1;transform:none;}
+@media(max-width:900px){
+  .pbi{grid-template-columns:1fr;}
+  body{padding-left:0;}
+  nav{position:relative;top:auto;left:auto;bottom:auto;width:100%;flex-direction:row;align-items:center;justify-content:space-between;border-right:none;border-bottom:1px solid var(--bd);padding:1rem 1.5rem;}
+  .nav-logo{margin-bottom:0;}
+  .nav-links{flex-direction:row;gap:.5rem;width:auto;}
+  .nav-links a{padding:.3rem .5rem;}
+  #inicio{grid-template-columns:1fr;}
+  .hero-left{border-right:none;padding:3rem 0 2rem;}
+  .hero-right{padding:0 0 3rem;}
+  .hero-n{font-size:clamp(2.5rem,12vw,4.5rem);}
+  .wrap{padding:0 1.5rem;}
+  section{padding:4rem 0;}
+  .cgrid{grid-template-columns:1fr;gap:2rem;}
+  .img-grid-2{grid-template-columns:1fr;}
+  .about-hero{grid-template-columns:1fr;}
+  footer{padding:1.4rem 1.5rem;flex-direction:column;align-items:flex-start;}
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ABOUT HERO — editorial layout */
+.about-hero{display:grid;grid-template-columns:180px 1fr;gap:2.5rem;align-items:start;margin-bottom:2rem;}
+.about-photo-wrap{display:flex;flex-direction:column;align-items:center;gap:.6rem;position:sticky;top:2.5rem;}
+.about-photo{width:180px;height:220px;object-fit:cover;object-position:top;border-radius:4px;border:1px solid var(--bd);display:block;filter:grayscale(20%);}
+.about-photo-cap{font-family:var(--fm);font-size:.6rem;color:var(--mt);letter-spacing:.08em;text-align:center;}
+.about-bio{display:flex;flex-direction:column;gap:0;}
+.about-p{font-size:.88rem;color:var(--mt);line-height:1.85;margin-bottom:1rem;}
+.about-p:last-child{margin-bottom:0;}
+/* LOGROS — accordion expandible */
+.logros-list{display:flex;flex-direction:column;border:1px solid var(--bd);border-radius:4px;overflow:hidden;}
+.logro-item{border-bottom:1px solid var(--bd);position:relative;}
+.logro-item:last-child{border-bottom:none;}
+.logro-trigger{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:1.2rem;padding:1.1rem 1.6rem;cursor:pointer;background:var(--bg);transition:background .15s;user-select:none;}
+.logro-trigger:hover{background:var(--sf);}
+.logro-idx{font-family:var(--fm);font-size:.6rem;color:var(--mt);letter-spacing:.12em;line-height:1;}
+.logro-name{font-family:var(--fh);font-size:.9rem;font-weight:700;letter-spacing:-.02em;line-height:1.2;}
+.logro-arrow{font-size:.75rem;color:var(--mt);transition:transform .25s;display:flex;align-items:center;justify-content:center;width:22px;height:22px;border:1px solid var(--bd);border-radius:50%;}
+.logro-item.open .logro-arrow{transform:rotate(45deg);background:var(--tx);color:#fff;border-color:var(--tx);}
+.logro-body{display:none;padding:0 1.6rem 1.4rem 4.2rem;background:var(--bg);}
+.logro-item.open .logro-body{display:block;}
+.logro-body-text{font-family:var(--fm);font-size:.72rem;color:var(--mt);line-height:1.75;border-left:2px solid var(--bd);padding-left:1rem;}
+
+/* SKILLS SECTION */
+.skills-wrap{display:flex;flex-direction:column;gap:2.5rem;}
+.skill-group{}
+.skill-group-title{font-family:var(--fm);font-size:.6rem;color:var(--mt);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;}
+.skill-group-title::before{content:'';width:10px;height:1px;background:var(--mt);}
+.skill-bars{display:flex;flex-direction:column;gap:.75rem;}
+.skill-row{display:grid;grid-template-columns:160px 1fr 40px;align-items:center;gap:1rem;}
+.skill-name{font-size:.82rem;font-weight:500;}
+.skill-track{height:4px;background:var(--sf2);border-radius:2px;overflow:hidden;border:1px solid var(--bd);}
+.skill-fill{height:100%;border-radius:2px;background:var(--tx);transition:width .8s ease;}
+.skill-pct{font-family:var(--fm);font-size:.62rem;color:var(--mt);text-align:right;}
+.skills-tags-wrap{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.5rem;}
+.soft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1px;background:var(--bd);border:1px solid var(--bd);border-radius:4px;overflow:hidden;margin-top:.5rem;}
+.soft-card{background:var(--sf);padding:1.1rem 1.3rem;transition:background .15s;}
+.soft-card:hover{background:var(--sf2);}
+.soft-title{font-size:.83rem;font-weight:600;margin-bottom:.2rem;}
+.soft-desc{font-family:var(--fm);font-size:.6rem;color:var(--mt);line-height:1.55;}
+@media(max-width:700px){
+  .about-photo{width:120px;height:150px;}
+  .skill-row{grid-template-columns:120px 1fr 36px;}
+} ─────────────────────────────── */
+.sk-universe{display:flex;flex-direction:column;gap:2.5rem;}
+.sk-domain{border:1px solid var(--bd);border-radius:6px;overflow:hidden;}
+.sk-domain-header{display:flex;align-items:center;gap:1rem;padding:1.2rem 1.6rem;border-bottom:1px solid var(--bd);background:var(--sf);}
+.sk-domain-icon{width:32px;height:32px;border-radius:4px;background:var(--tx);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;}
+.sk-domain-name{font-family:var(--fh);font-size:.82rem;font-weight:700;letter-spacing:.02em;}
+.sk-domain-count{font-family:var(--fm);font-size:.58rem;color:var(--mt);margin-left:auto;letter-spacing:.1em;}
+.sk-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:1px;background:var(--bd);}
+.sk-card{background:var(--bg);padding:1.2rem 1.3rem;cursor:default;transition:background .15s;position:relative;overflow:hidden;}
+.sk-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:transparent;transition:background .2s;}
+.sk-card:hover{background:var(--sf);}
+.sk-card:hover::before{background:var(--tx);}
+.sk-card-name{font-size:.82rem;font-weight:600;margin-bottom:.35rem;line-height:1.3;}
+.sk-card-desc{font-family:var(--fm);font-size:.6rem;color:var(--mt);line-height:1.6;opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;max-height:0;overflow:hidden;}
+.sk-card:hover .sk-card-desc{opacity:1;transform:none;max-height:100px;}
+@media(max-width:700px){
+  .sk-cards{grid-template-columns:repeat(auto-fill,minmax(140px,1fr));}
+  .sk-card:hover .sk-card-desc{max-height:none;}
+}
+
+/* logros definidos arriba */
+
+@media(max-width:900px){
+  .about-hero{grid-template-columns:120px 1fr;gap:1.5rem;}
+  .about-photo{width:120px;height:150px;}
+}
+
+/* ── FORM inputs dark ───────────────────────────────── */
+.fi,.fta{background:var(--sf2);border:1px solid var(--bd);border-radius:2px;padding:.65rem .85rem;font-family:var(--fn);font-size:.86rem;color:var(--tx);outline:none;transition:border-color .2s;width:100%;}
+.fi:focus,.fta:focus{border-color:var(--ac);}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><strong>DSOF</strong> · 20241221589</div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#proyectos">Proyectos</a></li>
+    <li><a href="#habilidades">Habilidades</a></li>
+    <li><a href="#herramientas">Herramientas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<div class="wrap">
+<section id="inicio">
+  <div class="hero-left">
+    <div class="hero-ey">Ing. Julián Adolfo Ramírez Gutiérrez · Universidad Surcolombiana</div>
+    <div class="hero-n">Daniel<br><span class="l2">Stiven Olarte</span></div>
+    <div class="hero-bot" style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--bd);">
+      <div class="sbadge"><span class="sdot green"></span>Electrónica Analógica 3</div>
+      <a href="#proyectos" class="btn">Ver proyectos →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-strip">
+      <div class="hs-item">Portafolio académico</div>
+      <div class="hs-item">2025–2026</div>
+      <div class="hs-item">USCO · Neiva, Colombia</div>
+    </div>
+    <div class="hero-meta">
+      <div class="hm"><strong>Programa</strong>Ing. Electrónica</div>
+      <div class="hm"><strong>Semestre</strong>5to Semestre</div>
+      <div class="hm"><strong>Código</strong>20241221589</div>
+      <div class="hm"><strong>Universidad</strong>USCO · Neiva</div>
+      <div class="hm"><strong>Materia</strong>Electrónica Analógica 3</div>
+      <div class="hm" style="border-bottom:none;"><strong>Período</strong>2025–2026</div>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="div"></div>
+
+<!-- ═══════════ SOBRE MÍ ═══════════ -->
+<div class="wrap fade-in">
+<section id="sobre-mi">
+  <div class="lbl">01 — Identificación</div>
+  <h2>Sobre mí</h2>
+
+  <div class="about-hero" style="align-items:start;">
+    <div class="about-photo-wrap">
+      <img src="images/img00.png" alt="Daniel Stiven Olarte Fernández" class="about-photo">
+      <div class="about-photo-cap">Daniel Stiven Olarte Fernández</div>
+    </div>
+    <div class="about-bio">
+      <p class="about-p">Soy estudiante de Ingeniería Electrónica en la Universidad Surcolombiana, pero mucho antes de llegar a la universidad ya me fascinaba entender cómo funciona todo lo que me rodea: desde desmontar aparatos para ver sus entrañas hasta construir pequeños circuitos por curiosidad.</p>
+      <p class="about-p">Me mueve la idea de que la electrónica puede resolver problemas reales; no solo en el laboratorio, sino en la vida cotidiana de personas concretas. Por eso disfruto el proceso completo: desde un boceto en papel hasta ver el prototipo funcionando sobre la mesa.</p>
+      <p class="about-p">Fuera del aula, trabajo en una iniciativa propia de creación de páginas web para negocios locales — restaurantes, hoteles, cafeterías y emprendimientos — integrando gestión de clientes, automatización con herramientas como Make y nociones de CRM. Me interesa el mundo del founder: construir productos útiles, validarlos rápido y escalarlos con tecnología. La inteligencia artificial y su aplicación práctica en negocios reales es uno de mis focos de exploración constante.</p>
+      <p class="about-p">Creo en el trabajo en equipo honesto y en documentar bien lo que uno hace, porque un buen ingeniero no solo resuelve el problema, también lo explica.</p>
+    </div>
+  </div>
+
+  <div class="info-grid" style="margin-top:2rem;">
+    <div class="ic"><div class="ic-l">Estudiante</div><div class="ic-v">Daniel Stiven Olarte Fernández</div></div>
+    <div class="ic"><div class="ic-l">Código</div><div class="ic-v">20241221589</div></div>
+    <div class="ic"><div class="ic-l">Programa</div><div class="ic-v">Ingeniería Electrónica</div></div>
+    <div class="ic"><div class="ic-l">Semestre</div><div class="ic-v">5to Semestre</div></div>
+    <div class="ic"><div class="ic-l">Universidad</div><div class="ic-v">Universidad Surcolombiana · USCO · Neiva</div></div>
+    <div class="ic"><div class="ic-l">Docente</div><div class="ic-v">Ing. Julián Adolfo Ramírez Gutiérrez</div></div>
+  </div>
+
+  <div class="team-lbl" style="margin-top:2.5rem;">// Cosas que he hecho</div>
+  <div class="logros-list">
+    <div class="logro-item" id="l1">
+      <div class="logro-trigger" onclick="togL('l1')"><span class="logro-idx">01</span><span class="logro-name">Desarrollo e integración de sistemas IoT</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Implementación de soluciones IoT con ESP32 e integración con plataformas en la nube como Blynk para monitoreo y control remoto de dispositivos.</p></div>
+    </div>
+    <div class="logro-item" id="l2">
+      <div class="logro-trigger" onclick="togL('l2')"><span class="logro-idx">02</span><span class="logro-name">Automatizaciones y bots</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Implementación de flujos de automatización usando Make y bots de Telegram para notificaciones, gestión de datos y procesos repetitivos.</p></div>
+    </div>
+    <div class="logro-item" id="l3">
+      <div class="logro-trigger" onclick="togL('l3')"><span class="logro-idx">03</span><span class="logro-name">Diseño web minimalista</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Diseño de interfaces, portafolios y landing pages en HTML/CSS con enfoque minimalista, responsive y orientado a negocios como restaurantes, hoteles y cafeterías.</p></div>
+    </div>
+    <div class="logro-item" id="l4">
+      <div class="logro-trigger" onclick="togL('l4')"><span class="logro-idx">04</span><span class="logro-name">Simulación de circuitos electrónicos</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Simulación y validación de amplificadores, filtros y sistemas analógicos en NI Multisim con comparación teórico-experimental detallada.</p></div>
+    </div>
+    <div class="logro-item" id="l5">
+      <div class="logro-trigger" onclick="togL('l5')"><span class="logro-idx">05</span><span class="logro-name">Documentación técnica en LaTeX</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Elaboración de reportes e informes técnicos en LaTeX y Overleaf, incluyendo diagramas de circuito en Circuitikz y tablas de análisis de error.</p></div>
+    </div>
+    <div class="logro-item" id="l6">
+      <div class="logro-trigger" onclick="togL('l6')"><span class="logro-idx">06</span><span class="logro-name">Implementación de sistemas analógicos</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Diseño y montaje práctico de amplificadores operacionales, filtros activos y sistemas de acondicionamiento de señal en laboratorio.</p></div>
+    </div>
+    <div class="logro-item" id="l7">
+      <div class="logro-trigger" onclick="togL('l7')"><span class="logro-idx">07</span><span class="logro-name">Aprendizaje autodidacta en tecnología</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Exploración continua de automatización, herramientas de productividad, inteligencia artificial aplicada y tendencias de software por cuenta propia.</p></div>
+    </div>
+    <div class="logro-item" id="l8">
+      <div class="logro-trigger" onclick="togL('l8')"><span class="logro-idx">08</span><span class="logro-name">Coordinación de proyectos académicos</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Organización y gestión de equipos de trabajo para proyectos técnicos, distribuyendo roles, tiempos y entregables de forma autónoma.</p></div>
+    </div>
+    <div class="logro-item" id="l9">
+      <div class="logro-trigger" onclick="togL('l9')"><span class="logro-idx">09</span><span class="logro-name">Investigación de soluciones tecnológicas</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Búsqueda e implementación de sistemas de gestión, CRM y herramientas digitales aplicadas a contextos de negocio reales.</p></div>
+    </div>
+    <div class="logro-item" id="l10">
+      <div class="logro-trigger" onclick="togL('l10')"><span class="logro-idx">10</span><span class="logro-name">Contenido visual y presentaciones técnicas</span><span class="logro-arrow">+</span></div>
+      <div class="logro-body"><p class="logro-body-text">Creación de contenido visual estructurado y presentaciones técnicas claras para comunicar resultados de proyectos a distintos públicos.</p></div>
+    </div>
+  </div>
+
+  <div class="team-lbl" style="margin-top:2.5rem;">// Equipo de trabajo</div>
+  <div class="team-grid">
+    <div class="tc me"><div class="ti">DO</div><div><div class="tn">Daniel Stiven Olarte Fernández</div><div class="tc-code">20241221589 · Autor del portafolio</div></div></div>
+    <div class="tc"><div class="ti">EB</div><div><div class="tn">Emerson Felipe Barrera Ramos</div><div class="tc-code">20241221637</div></div></div>
+    <div class="tc"><div class="ti">DC</div><div><div class="tn">Dominy Melandri Cadena Soto</div><div class="tc-code">20241221638</div></div></div>
+    <div class="tc"><div class="ti">JP</div><div><div class="tn">Jerónimo Pérez Pérez</div><div class="tc-code">20241221419</div></div></div>
+  </div>
+</section>
+</div>
+
+<div class="div"></div>
+
+<!-- ═══════════ PROYECTOS ═══════════ -->
+<div class="wrap fade-in">
+<section id="proyectos">
+  <div class="lbl">02 — Proyectos</div>
+  <h2>Portafolio de Proyectos</h2>
+  <div class="plist">
+
+    <!-- ── PROYECTO 1 ── -->
+    <div class="pc open" id="c1">
+      <div class="pch" onclick="tog('c1')">
+        <div class="pnum">01</div>
+        <div class="pcc">
+          <div class="pst done"><span class="sdot green"></span>Completado</div>
+          <div class="pt">Aplicaciones de Amplificadores Operacionales</div>
+          <div class="ps">Apps. 11–15 · LM741 · TL084 · UA741 · NI Multisim · Osciloscopio Rigol</div>
+        </div>
+        <div class="pchev">+</div>
+      </div>
+      <div class="pb">
+        <div class="pbi">
+          <!-- LEFT -->
+          <div>
+            <p class="pbd">Cinco aplicaciones prácticas sobre amplificadores operacionales, cada una diseñada analíticamente, simulada en NI Multisim e implementada en protoboard con validación experimental mediante osciloscopio Rigol y generador de funciones.</p>
+            <div class="sl">Aplicaciones desarrolladas</div>
+            <div class="alist">
+              <div class="ar"><span class="an">11</span><div><div class="ant">Convertidor Frecuencia–Voltaje (F/V)</div><div class="asp">LM741 · C1=1nF · R1=100kΩ · Rango: 1–5 kHz · fc=1.59 Hz</div></div></div>
+              <div class="ar"><span class="an">12</span><div><div class="ant">Amplificador de Instrumentación</div><div class="asp">TL084 · G=2 · Rg=20kΩ · CMRR=40.26 dB · Error máx. 4%</div></div></div>
+              <div class="ar"><span class="an">13</span><div><div class="ant">Filtro Activo Butterworth 2° orden</div><div class="asp">LM741 · Sallen-Key · fc=1 kHz · Q=0.707 · −40 dB/dec</div></div></div>
+              <div class="ar"><span class="an">14</span><div><div class="ant">Comparador con Histéresis (Schmitt Trigger)</div><div class="asp">LM741 · VTH=±1.80V · ΔVH=3.60V · Error: 6.67%</div></div></div>
+              <div class="ar" style="border-bottom:none;"><span class="an">15</span><div><div class="ant">Oscilador Puente de Wien</div><div class="asp">UA741 · fo=1591.55 Hz · A=3 · R=10kΩ · C=10nF · Error: 0.10%</div></div></div>
+            </div>
+            <div class="sl">Herramientas utilizadas</div>
+            <div class="tags">
+              <span class="tag">1N4148</span><span class="tag">Generador de funciones</span><span class="tag">LM741</span>
+              <span class="tag">Multímetro</span><span class="tag">NI Multisim</span><span class="tag">Osciloscopio Rigol</span>
+              <span class="tag">Overleaf / LaTeX</span><span class="tag">Protoboard</span><span class="tag">TL084</span><span class="tag">UA741</span>
+            </div>
+          </div>
+          <!-- RIGHT -->
+          <div>
+            <div class="sl">App 11 · Convertidor F/V — Oscilogramas</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img01.jpeg" alt="Fig. 3 — Entrada: 1.03 kHz · Salida DC: 1.80 V" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 3 — Entrada: 1.03 kHz · Salida DC: 1.80 V</div>
+</div><div class="img-wrap">
+  <img class="img-real" src="images/img02.jpeg" alt="Fig. 4 — Entrada: 3.05 kHz · Salida DC: 6.91 V" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 4 — Entrada: 3.05 kHz · Salida DC: 6.91 V</div>
+</div><div class="img-wrap">
+  <img class="img-real" src="images/img03.jpeg" alt="Fig. 5 — Entrada: 5.00 kHz · Salida DC: 9.80 V" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 5 — Entrada: 5.00 kHz · Salida DC: 9.80 V</div>
+</div>
+          </div>
+        </div>
+        <!-- Full row: App 12 & 13 -->
+        <div class="pfull">
+          <div class="pbi">
+            <div>
+              <div class="sl">App 12 · Amplificador de Instrumentación — G=2</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img04.jpeg" alt="Fig. 8 — V1=80mV (amarillo), Vout=165mV (cian). Inversión de fase confirmada. G≈2" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 8 — V1=80mV (amarillo), Vout=165mV (cian). Inversión de fase confirmada. G≈2</div>
+</div>
+            </div>
+            <div>
+              <div class="sl">App 13 · Filtro Butterworth — Diagrama de Bode</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img05.jpeg" alt="Fig. 19 — Simulación Multisim (azul) vs. Experimental (verde). fc experimental ≈ 800 Hz" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 19 — Simulación Multisim (azul) vs. Experimental (verde). fc experimental ≈ 800 Hz</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <!-- Full row: App 14 & 15 -->
+        <div class="pfull">
+          <div class="pbi">
+            <div>
+              <div class="sl">App 14 · Comparador con Histéresis — Umbral de conmutación</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img06.jpeg" alt="Fig. 23 — Señal senoidal (cian) vs. onda cuadrada (amarillo). BY=−1.920V confirma VTH experimental" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 23 — Señal senoidal (cian) vs. onda cuadrada (amarillo). BY=−1.920V confirma VTH experimental</div>
+</div>
+            </div>
+            <div>
+              <div class="sl">App 15 · Oscilador Puente de Wien</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img07.jpeg" alt="Fig. 27 — Onda senoidal estable: fo=1.59 kHz · Vmax=7.60V · Error vs. teórico: 0.10%" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 27 — Onda senoidal estable: fo=1.59 kHz · Vmax=7.60V · Error vs. teórico: 0.10%</div>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROYECTO 2 ── -->
+    <div class="pc" id="c2">
+      <div class="pch" onclick="tog('c2')">
+        <div class="pnum">02</div>
+        <div class="pcc">
+          <div class="pst done"><span class="sdot green"></span>Completado</div>
+          <div class="pt">Instrumentación Analógica — Metodología Lean Startup</div>
+          <div class="ps">MVP · Termopar tipo K · AD620AN · TL074ACN · CESURCAFÉ · Ganancia G=495 · 0–5 V</div>
+        </div>
+        <div class="pchev">+</div>
+      </div>
+      <div class="pb">
+        <div class="pbi">
+          <!-- LEFT -->
+          <div>
+            <p class="pbd">MVP de instrumentación analógica que acondiciona la señal de un termopar tipo K para visualizar la curva de tueste de café en tiempo real mediante un osciloscopio o multímetro, sin ningún componente digital. Desarrollado para la sala CESURCAFÉ de la USCO bajo el ciclo <strong>Crear → Medir → Aprender</strong> de Lean Startup.</p>
+
+            <div class="sl">Problema identificado — Sala CESURCAFÉ</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img08.jpeg" alt="Fig. 1 — Tostadora analógica de la sala CESURCAFÉ · Universidad Surcolombiana · Modelo M-8.2" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 1 — Tostadora analógica de la sala CESURCAFÉ · Universidad Surcolombiana · Modelo M-8.2</div>
+</div>
+            <p style="font-size:.8rem;color:var(--mt);line-height:1.7;margin-bottom:1.25rem;">La tostadora no contaba con registro automático de temperatura ni curva de tueste. Los datos se anotaban a mano, impidiendo la reproducibilidad del proceso y el control de calidad del café.</p>
+
+            <div class="sl">Arquitectura del sistema</div>
+            <div class="mets">
+              <div class="met"><span class="mv">495</span><div class="ml">Ganancia total</div></div>
+              <div class="met"><span class="mv">0–5 V</span><div class="ml">Rango salida</div></div>
+              <div class="met"><span class="mv">1.59 Hz</span><div class="ml">fc filtro</div></div>
+            </div>
+            <div class="alist">
+              <div class="ar"><span class="an">E1</span><div><div class="ant">AD620AN — Amplificador de instrumentación</div><div class="asp">RG=1kΩ → G1=50.4 · Señal termopar 41µV/°C · Alta inmunidad CMRR</div></div></div>
+              <div class="ar"><span class="an">E2</span><div><div class="ant">TL074ACN — Filtro Sallen-Key pasa-bajos</div><div class="asp">R=100kΩ · C=1µF · fc=1.59 Hz · Ganancia unitaria · Elimina ruido calefactor</div></div></div>
+              <div class="ar"><span class="an">E3</span><div><div class="ant">TL074ACN — Amplificador de salida</div><div class="asp">Potenciómetro 500Ω · G2≈9.82 · Gtotal≈495</div></div></div>
+              <div class="ar" style="border-bottom:none;"><span class="an">CJC</span><div><div class="ant">LM35 — Compensación de unión fría</div><div class="asp">10 mV/°C · Tamb=25°C → VCJC=250 mV · Cancela junta parásita</div></div></div>
+            </div>
+          </div>
+          <!-- RIGHT -->
+          <div>
+            <div class="sl">Simulación en NI Multisim</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img09.png" alt="Fig. 4 — Simulación completa del acondicionador. Vin=1.025mV → Vout=4.53V. Ganancia simulada=442.4" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 4 — Simulación completa del acondicionador. Vin=1.025mV → Vout=4.53V. Ganancia simulada=442.4</div>
+</div>
+            <div class="sl">Prototipo en protoboard</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img10.jpeg" alt="Fig. 5 — Prototipo del acondicionador de señal armado en protoboard con AD620AN + TL074ACN + LM35" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 5 — Prototipo del acondicionador de señal armado en protoboard con AD620AN + TL074ACN + LM35</div>
+</div>
+          </div>
+        </div>
+
+        <!-- Validación experimental -->
+        <div class="pfull">
+          <div class="sl">Validación experimental — Rango de salida</div>
+          <div class="pbi">
+            <div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img11.jpeg" alt="Fig. 6a — Termopar a temperatura ambiente (≈25°C). Lectura: Vout = 0.05 V" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 6a — Termopar a temperatura ambiente (≈25°C). Lectura: Vout = 0.05 V</div>
+</div>
+            </div>
+            <div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img12.jpeg" alt="Fig. 6b — Termopar expuesto a encendedor (≈250°C). Lectura: Vout = 5.05 V. Gexp≈493" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 6b — Termopar expuesto a encendedor (≈250°C). Lectura: Vout = 5.05 V. Gexp≈493</div>
+</div>
+            </div>
+          </div>
+          <div class="sl">Curva de tueste de café — Resultado del prototipo</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img13.png" alt="Fig. 7 — Curva de temperatura capturada en tiempo real. Carga → Giro → Maillard → Primer Crack → Descarga" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. 7 — Curva de temperatura capturada en tiempo real. Carga → Giro → Maillard → Primer Crack → Descarga</div>
+</div>
+          <p style="font-size:.8rem;color:var(--mt);line-height:1.7;margin-top:.75rem;margin-bottom:1.25rem;">La encargada de CESURCAFÉ validó el prototipo funcionalmente: la curva era legible y reproducible. Se decidió <strong>perseverar</strong> en la arquitectura e iterar en el filtrado, compensación de unión fría y alarma de temperatura.</p>
+          <div class="sl">Comparación teórico-experimental</div>
+          <table class="bom">
+            <thead><tr><th>Parámetro</th><th>Teórico</th><th>Simulado</th><th>Experimental</th><th>Error (%)</th></tr></thead>
+            <tbody>
+              <tr><td>Ganancia total G</td><td>495</td><td>493.2</td><td>493</td><td>0.40</td></tr>
+              <tr><td>fc del filtro (Hz)</td><td>1.59</td><td>1.62</td><td>1.53</td><td>3.77</td></tr>
+              <tr><td>Vout a 25°C (mV)</td><td>108.6</td><td>105.0</td><td>50.0</td><td>53.9†</td></tr>
+            </tbody>
+          </table>
+          <p style="font-size:.72rem;color:var(--mt);font-family:var(--fm);">† Error atribuible al offset parásito de juntas en protoboard (efecto Seebeck) y offset del AD620AN amplificado por G=495.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROYECTO 3 ── -->
+    <div class="pc" id="c3">
+      <div class="pch" onclick="tog('c3')">
+        <div class="pnum">03</div>
+        <div class="pcc">
+          <div class="pst done"><span class="sdot green"></span>Completado</div>
+          <div class="pt">Diseño de PCB — Detector de Continuidad con NE555</div>
+          <div class="ps">EasyEDA · JLCPCB · DRC · DFM · Gerbers · BOM · Costo total: $1.65 USD</div>
+        </div>
+        <div class="pchev">+</div>
+      </div>
+      <div class="pb">
+        <div class="pbi">
+          <!-- LEFT -->
+          <div>
+            <p class="pbd">Tutorial técnico completo del flujo de diseño PCB en EasyEDA aplicado a un detector de continuidad basado en NE555. Desde la captura del esquemático hasta los archivos Gerber para fabricación industrial en JLCPCB, con criterios DRC, DFM y costo total muy por debajo del límite de 20 USD.</p>
+
+            <div class="sl">Circuito — Detector de Continuidad NE555</div>
+            <div class="alist">
+              <div class="ar"><span class="an">U1</span><div><div class="ant">NE555P — Temporizador</div><div class="asp">Texas Instruments · LCSC C46749 · $0.272</div></div></div>
+              <div class="ar"><span class="an">Q1</span><div><div class="ant">BC548BTA — Transistor NPN</div><div class="asp">onsemi · LCSC C900801 · $0.112</div></div></div>
+              <div class="ar"><span class="an">C1</span><div><div class="ant">Capacitor 100nF</div><div class="asp">TDK · LCSC C3295114 · $0.251</div></div></div>
+              <div class="ar"><span class="an">R1</span><div><div class="ant">Resistencia 4.7 kΩ</div><div class="asp">VO · LCSC C2896834 · $0.004</div></div></div>
+              <div class="ar"><span class="an">R2</span><div><div class="ant">Resistencia 1 kΩ</div><div class="asp">VO · LCSC C2903245 · $0.007</div></div></div>
+              <div class="ar"><span class="an">POT</span><div><div class="ant">Potenciómetro 1 MΩ</div><div class="asp">Mercado local · $0.300</div></div></div>
+              <div class="ar" style="border-bottom:none;"><span class="an">P2/P3</span><div><div class="ant">Conectores 2P (parlante + batería)</div><div class="asp">Mercado local · $0.150 c/u</div></div></div>
+            </div>
+
+            <div class="sl">Revisión DFM — 5 decisiones clave</div>
+            <div class="dfm">
+              <div class="dfm-item"><span class="dfm-n">DFM1</span><span>Componentes Through-Hole (THT): ensamble manual sin equipos SMD especializados, ideal para prototipado educativo.</span></div>
+              <div class="dfm-item"><span class="dfm-n">DFM2</span><span>Sustrato estándar 1.6 mm / cobre 1 oz: procesable en cualquier línea convencional sin ajustes especiales.</span></div>
+              <div class="dfm-item"><span class="dfm-n">DFM3</span><span>Solo perforaciones PTH estándar: elimina vías ciegas o enterradas y sus costosos pasos de laminación secuencial.</span></div>
+              <div class="dfm-item"><span class="dfm-n">DFM4</span><span>2 capas en área mínima 62.49×42.42 mm: precio base más bajo y proceso de prensado más simple.</span></div>
+              <div class="dfm-item"><span class="dfm-n">DFM5</span><span>Acabado HASL + máscara verde: menor costo, excelente base para soldadura manual, sin acabados premium innecesarios.</span></div>
+            </div>
+          </div>
+          <!-- RIGHT -->
+          <div>
+            <div class="sl">Parámetros de fabricación — JLCPCB</div>
+            <table class="bom">
+              <thead><tr><th>Parámetro</th><th>Selección</th></tr></thead>
+              <tbody>
+                <tr><td>Capas de cobre</td><td>2 capas</td></tr>
+                <tr><td>Dimensiones</td><td>62.49 × 42.42 mm</td></tr>
+                <tr><td>Color de máscara</td><td>Verde</td></tr>
+                <tr><td>Acabado superficial</td><td>HASL con plomo</td></tr>
+                <tr><td>Espesor de tarjeta</td><td>1.6 mm</td></tr>
+                <tr><td>Espesor del cobre</td><td>1 oz</td></tr>
+                <tr><td>Perforaciones</td><td>Solo PTH estándar</td></tr>
+                <tr><td>Cantidad mínima</td><td>5 unidades</td></tr>
+              </tbody>
+            </table>
+
+            <div class="sl">Estimación de costos</div>
+            <div class="mets">
+              <div class="met"><span class="mv">$1.65</span><div class="ml">USD por unidad</div></div>
+              <div class="met"><span class="mv">8.2%</span><div class="ml">del límite $20</div></div>
+              <div class="met"><span class="mv">$18.35</span><div class="ml">Margen libre</div></div>
+            </div>
+            <table class="bom">
+              <thead><tr><th>Concepto</th><th>Costo (USD)</th></tr></thead>
+              <tbody>
+                <tr><td>Componentes (1 unidad)</td><td>$1.246</td></tr>
+                <tr><td>PCB JLCPCB (1 unidad)</td><td>$0.400</td></tr>
+                <tr><td><strong>Total</strong></td><td><strong>$1.646</strong></td></tr>
+              </tbody>
+            </table>
+
+            <div class="sl">Capturas del proceso en EasyEDA</div>
+            <div class="img-grid-2">
+<div class="img-ph" style="min-height:140px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Esquemático EasyEDA</div>
+  <div class='img-ph-h'>Captura del esquemático validado</div>
+</div><div class="img-ph" style="min-height:140px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Layout PCB enrutado</div>
+  <div class='img-ph-h'>Vista del PCB editor con ruteo completo</div>
+</div><div class="img-ph" style="min-height:140px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Reporte DRC</div>
+  <div class='img-ph-h'>Captura con 0 errores críticos</div>
+</div><div class="img-ph" style="min-height:140px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Vista previa JLCPCB / Render 3D</div>
+  <div class='img-ph-h'>Vista 3D del fabricante</div>
+</div>
+            </div>
+          </div>
+        </div>
+        <div class="pfull">
+          <div class="sl">Entregables</div>
+          <div class="dlist">
+            <div class="di ok"><span class="dn">01</span>Tutorial técnico paso a paso con capturas del flujo en EasyEDA</div>
+            <div class="di ok"><span class="dn">02</span>Esquemático final validado con referencias, valores y huellas correctas</div>
+            <div class="di ok"><span class="dn">03</span>Diseño PCB completamente enrutado en 2 capas (62.49×42.42 mm)</div>
+            <div class="di ok"><span class="dn">04</span>Reporte DRC conforme a reglas JLCPCB</div>
+            <div class="di ok"><span class="dn">05</span>Revisión DFM: 5 decisiones documentadas de manufactura</div>
+            <div class="di ok"><span class="dn">06</span>Archivos Gerbers + archivo de perforación</div>
+            <div class="di ok"><span class="dn">07</span>BOM completo con costos LCSC verificados</div>
+            <div class="di ok"><span class="dn">08</span>Estimación de costo: $1.65 USD/unidad — 91.8% por debajo del límite</div>
+            <div class="di"><span class="dn">09</span>Render 3D de la PCB final — pendiente de captura</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROYECTO 4 ── -->
+    <div class="pc" id="c4">
+      <div class="pch" onclick="tog('c4')">
+        <div class="pnum">04</div>
+        <div class="pcc">
+          <div class="pst done"><span class="sdot green"></span>Completado</div>
+          <div class="pt">Marco de Diseño para un Sintetizador Analógico de Señal ECG</div>
+          <div class="ps">Diseño conceptual · Modelado de ritmos normales y anomalías patológicas · Bloqueo AV · Bradicardia · Depresión ST</div>
+        </div>
+        <div class="pchev">+</div>
+      </div>
+      <div class="pb">
+        <div class="pbi">
+          <!-- LEFT -->
+          <div>
+            <p class="pbd">Documento conceptual que establece la base de diseño para un sintetizador analógico de señal ECG capaz de reproducir un ciclo cardíaco normal y tres anomalías seleccionadas. El enfoque modela cada subonda (P, Q, R, S, T) como señal independiente que luego se suma para reconstruir la morfología completa.</p>
+
+            <div class="sl">Señal ECG normal — Componentes</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img14.png" alt="Fig. P4.1 — Ciclo cardíaco normal con identificación de ondas P, Q, R, S, T, intervalos PR, QRS, QT y línea isoeléctrica" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. P4.1 — Ciclo cardíaco normal con identificación de ondas P, Q, R, S, T, intervalos PR, QRS, QT y línea isoeléctrica</div>
+</div>
+            <div class="sl">Anomalías seleccionadas</div>
+            <div class="anom-grid">
+              <div class="anom-cell">
+                <div class="anom-t">Bloqueo AV 1° grado</div>
+                <div class="anom-sub">Intervalo PR / Onda P</div>
+                <div class="anom-d">Intervalo PR &gt; 200 ms (hasta 400 ms). Se implementa con temporizadores monoestables o redes RC ajustables.</div>
+              </div>
+              <div class="anom-cell">
+                <div class="anom-t">Bradicardia</div>
+                <div class="anom-sub">Frecuencia cardíaca</div>
+                <div class="anom-d">Período cardíaco &gt; 1000 ms (&lt;60 lpm). Solo requiere ajustar la frecuencia del oscilador principal.</div>
+              </div>
+              <div class="anom-cell">
+                <div class="anom-t">Depresión del segmento ST</div>
+                <div class="anom-sub">Segmento ST</div>
+                <div class="anom-d">Desplazamiento negativo −0.10 a −0.30 mV mediante sumador analógico con offset controlable.</div>
+              </div>
+            </div>
+          </div>
+          <!-- RIGHT -->
+          <div>
+            <div class="sl">Bloqueo AV de primer grado — Comparación PR</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img15.png" alt="Fig. P4.2 — PR normal 160ms (&lt;200ms) vs. Bloqueo AV 1° con PR prolongado 280ms (&gt;200ms)" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. P4.2 — PR normal 160ms (&lt;200ms) vs. Bloqueo AV 1° con PR prolongado 280ms (&gt;200ms)</div>
+</div>
+            <div class="sl">Bradicardia — Comparación de frecuencia</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img16.png" alt="Fig. P4.3 — ECG normal ~75bpm (RR=800ms) vs. Bradicardia sinusal ~50bpm (RR=1200ms)" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. P4.3 — ECG normal ~75bpm (RR=800ms) vs. Bradicardia sinusal ~50bpm (RR=1200ms)</div>
+</div>
+            <div class="sl">Depresión del segmento ST</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img17.png" alt="Fig. P4.4 — ECG normal con nivel isoeléctrico vs. Depresión ST (&gt;0.1mV) con Punto J deprimido −1.5mm" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. P4.4 — ECG normal con nivel isoeléctrico vs. Depresión ST (&gt;0.1mV) con Punto J deprimido −1.5mm</div>
+</div>
+          </div>
+        </div>
+
+        <!-- Modelo síntesis y módulos -->
+        <div class="pfull">
+          <div class="pbi">
+            <div>
+              <div class="sl">Diagrama de flujo — Modelo de síntesis</div>
+<div class="img-wrap">
+  <img class="img-real" src="images/img18.png" alt="Fig. P4.5 — Generación individual de subondas P, Q, R, S, T e integración en la señal ECG compuesta mediante suma vectororial" style="object-fit:contain;background:#f0f0ee;">
+  <div class='img-caption'>Fig. P4.5 — Generación individual de subondas P, Q, R, S, T e integración en la señal ECG compuesta mediante suma vectororial</div>
+</div>
+            </div>
+            <div>
+              <div class="sl">División modular del sistema</div>
+              <div class="mods">
+                <div class="mod"><span class="mod-n">M1</span><div><div class="mod-t">Generador de Ritmo y Control Temporal</div><div class="mod-d">Oscilador maestro configurable 40–150 lpm + distribución de retardos por subonda</div></div></div>
+                <div class="mod"><span class="mod-n">M2</span><div><div class="mod-t">Generadores de Subondas P y T</div><div class="mod-d">Circuitos de conformación analógica de pulsos. Redes RC, integradores y filtros activos.</div></div></div>
+                <div class="mod"><span class="mod-n">M3</span><div><div class="mod-t">Generadores de Subondas Q, R y S</div><div class="mod-d">Circuitos de pulso para complejo QRS. Inversores para polaridad negativa de Q y S.</div></div></div>
+                <div class="mod"><span class="mod-n">M4</span><div><div class="mod-t">Sumador Analógico y Etapa de Salida</div><div class="mod-d">Amplificador sumador + control de nivel ST + filtrado HF + salida diferencial 0.5–3.0 mV pico.</div></div></div>
+              </div>
+              <div class="sl">Diagrama de bloques completo</div>
+<div class="img-ph" style="min-height:150px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Figura P4.6 — Diagrama de bloques del sintetizador</div>
+  <div class='img-ph-h'>Agregar imagen del diagrama de bloques del docx</div>
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── PROYECTO 5 ── -->
+    <div class="pc" id="c5">
+      <div class="pch" onclick="tog('c5')">
+        <div class="pnum">05</div>
+        <div class="pcc">
+          <div class="pst wip"><span class="sdot" style="background:#8a4a1a;animation:blink 2s infinite;"></span>En desarrollo</div>
+          <div class="pt">Prototipo y Validación Experimental — Sintetizador Analógico ECG</div>
+          <div class="ps">Implementación física de los módulos M1–M4 · Validación con osciloscopio · Documentación para fabricación</div>
+        </div>
+        <div class="pchev">+</div>
+      </div>
+      <div class="pb">
+        <div class="pbi">
+          <!-- LEFT -->
+          <div>
+            <p class="pbd">Este proyecto materializa el marco conceptual del Proyecto 4 mediante el diseño, implementación y validación experimental de un prototipo funcional del sintetizador analógico de señal ECG. El énfasis está en traducir la arquitectura de subondas a un sistema estable, medible y ajustable, verificable con osciloscopio y documentado para fabricación.</p>
+
+            <div class="sl">Objetivo y alcance</div>
+            <div class="alist">
+              <div class="ar"><span class="an">RF1</span><div><div class="ant">Señal periódica tipo ECG ajustable 40–150 lpm</div><div class="asp">Frecuencia configurable por módulo de ritmo (oscilador maestro)</div></div></div>
+              <div class="ar"><span class="an">RF2</span><div><div class="ant">Morfología normal P, Q, R, S, T reproducida</div><div class="asp">Amplitud 0.5–3.0 mV pico · Conformación analógica de pulsos</div></div></div>
+              <div class="ar"><span class="an">RF3</span><div><div class="ant">Activación independiente de anomalías</div><div class="asp">Bloqueo AV 1° · Bradicardia · Depresión ST</div></div></div>
+              <div class="ar" style="border-bottom:none;"><span class="an">RO1</span><div><div class="ant">Puntos de prueba accesibles en cada módulo</div><div class="asp">Salida compatible con entrada diferencial de electrocardiógrafo de laboratorio</div></div></div>
+            </div>
+
+            <div class="sl">Plan de implementación</div>
+            <div class="tl">
+              <div class="tli"><div class="tw">Fase 1</div><div class="tt">Implementación M1 — Generador de Ritmo</div><div class="td">Oscilador astable u Op-Amp configurado para generar tren de pulsos con período ajustable 400–1500 ms</div></div>
+              <div class="tli"><div class="tw">Fase 2</div><div class="tt">Implementación M2/M3 — Subondas</div><div class="td">Generadores de onda P, T (positivas) y Q, R, S (complejo QRS con inversores para Q y S)</div></div>
+              <div class="tli"><div class="tw">Fase 3</div><div class="tt">Implementación M4 — Sumador y salida</div><div class="td">Amplificador sumador Op-Amp + control de desplazamiento ST + etapa de acondicionamiento final</div></div>
+              <div class="tli"><div class="tw">Fase 4</div><div class="tt">Validación y anomalías</div><div class="td">Oscilogramas de señal normal y tres anomalías · Documentación para fabricación en PCB</div></div>
+            </div>
+          </div>
+          <!-- RIGHT: placeholders -->
+          <div>
+            <div class="sl">Oscilograma — Señal ECG normal sintetizada</div>
+<div class="img-ph" style="min-height:160px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Oscilograma señal ECG completa</div>
+  <div class='img-ph-h'>Agregar captura del osciloscopio con ciclo P-QRS-T visible</div>
+</div>
+            <div class="sl">Anomalía 1 — Bloqueo AV 1° grado</div>
+<div class="img-ph" style="min-height:140px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Oscilograma bloqueo AV</div>
+  <div class='img-ph-h'>Intervalo PR prolongado &gt;200 ms visible en pantalla</div>
+</div>
+            <div class="sl">Anomalía 2 — Bradicardia</div>
+<div class="img-ph" style="min-height:140px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Oscilograma bradicardia</div>
+  <div class='img-ph-h'>Período RR extendido, frecuencia &lt;60 lpm</div>
+</div>
+            <div class="sl">Anomalía 3 — Depresión segmento ST</div>
+<div class="img-ph" style="min-height:140px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Oscilograma depresión ST</div>
+  <div class='img-ph-h'>Segmento ST desplazado negativamente respecto a línea isoeléctrica</div>
+</div>
+          </div>
+        </div>
+        <div class="pfull">
+          <div class="pbi">
+            <div>
+              <div class="sl">Montaje físico</div>
+<div class="img-ph" style="min-height:160px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Foto prototipo en protoboard</div>
+  <div class='img-ph-h'>Agregar foto del montaje físico con los 4 módulos armados</div>
+</div>
+            </div>
+            <div>
+              <div class="sl">Documentación para fabricación</div>
+<div class="img-ph" style="min-height:160px;">
+  <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
+  <div class="img-ph-t">Esquemático del prototipo completo</div>
+  <div class='img-ph-h'>Esquemático final del sintetizador ECG completo</div>
+</div>
+            </div>
+          </div>
+          <div class="sl">Entregables esperados</div>
+          <div class="dlist">
+            <div class="di"><span class="dn">01</span>Prototipo funcional del sintetizador con 4 módulos interconectados</div>
+            <div class="di"><span class="dn">02</span>Oscilogramas: señal ECG normal y 3 anomalías validadas</div>
+            <div class="di"><span class="dn">03</span>Foto del montaje físico en protoboard</div>
+            <div class="di"><span class="dn">04</span>Esquemático completo del sistema (Circuitikz / EasyEDA)</div>
+            <div class="di"><span class="dn">05</span>Análisis de error teórico-experimental por módulo</div>
+            <div class="di"><span class="dn">06</span>Documentación técnica para reproducción y fabricación en PCB</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /plist -->
+</section>
+</div>
+
+<div class="div"></div>
+
+<!-- ═══════════ HABILIDADES ═══════════ -->
+<div class="wrap fade-in">
+<section id="habilidades">
+  <div class="lbl">03 — Competencias</div>
+  <h2>Habilidades</h2>
+  <div class="sk-universe">
+
+    <div class="sk-domain">
+      <div class="sk-domain-header">
+        <div class="sk-domain-icon">⚡</div>
+        <div class="sk-domain-name">Técnicas</div>
+        <div class="sk-domain-count">9 habilidades</div>
+      </div>
+      <div class="sk-cards">
+        <div class="sk-card"><div class="sk-card-name">Electrónica analógica</div><div class="sk-card-desc">Diseño y análisis de circuitos con op-amps, filtros, amplificadores y señales de tiempo continuo.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Diseño de circuitos</div><div class="sk-card-desc">Esquemáticos funcionales y trazado de PCB desde la etapa de prototipo hasta fabricación.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Instrumentación</div><div class="sk-card-desc">Acondicionamiento de señales débiles con amplificadores de instrumentación como el AD620AN.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Filtros activos</div><div class="sk-card-desc">Implementación de filtros pasa-bajas, pasa-altas y de banda con topologías Sallen-Key y MFB.</div></div>
+        <div class="sk-card"><div class="sk-card-name">IoT · ESP32</div><div class="sk-card-desc">Integración de sensores analógicos con plataformas IoT usando WiFi, MQTT y dashboards en la nube.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Simulación SPICE</div><div class="sk-card-desc">Validación de diseños con NI Multisim antes del montaje físico para reducir errores.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Diseño PCB</div><div class="sk-card-desc">Layout en EasyEDA con reglas DFM para fabricación en JLCPCB y fresadora CNC.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Acondicionamiento señal</div><div class="sk-card-desc">Ganancia, offset, protección ESD y conversión de rangos para adquisición de datos.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Desarrollo web básico</div><div class="sk-card-desc">Maquetación de portafolios e interfaces de documentación técnica con HTML y CSS.</div></div>
+      </div>
+    </div>
+
+    <div class="sk-domain">
+      <div class="sk-domain-header">
+        <div class="sk-domain-icon">&lt;/&gt;</div>
+        <div class="sk-domain-name">Programación</div>
+        <div class="sk-domain-count">5 habilidades</div>
+      </div>
+      <div class="sk-cards">
+        <div class="sk-card"><div class="sk-card-name">C / C++</div><div class="sk-card-desc">Firmware para microcontroladores: timers, interrupciones, comunicación serial y control de periféricos.</div></div>
+        <div class="sk-card"><div class="sk-card-name">HTML · CSS</div><div class="sk-card-desc">Maquetación semántica y diseño responsivo de interfaces técnicas y portafolios académicos.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Lógica de automatización</div><div class="sk-card-desc">Flujos con Make (Integromat) para conectar APIs, notificaciones y sensores sin código adicional.</div></div>
+        <div class="sk-card"><div class="sk-card-name">APIs REST</div><div class="sk-card-desc">Consumo de endpoints para envío de datos de sensores a dashboards y servicios externos.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Integración IoT</div><div class="sk-card-desc">Pipelines completos desde sensor físico hasta visualización en Blynk o dashboard web.</div></div>
+      </div>
+    </div>
+
+    <div class="sk-domain">
+      <div class="sk-domain-header">
+        <div class="sk-domain-icon">🛠</div>
+        <div class="sk-domain-name">Software y herramientas</div>
+        <div class="sk-domain-count">8 herramientas</div>
+      </div>
+      <div class="sk-cards">
+        <div class="sk-card"><div class="sk-card-name">NI Multisim</div><div class="sk-card-desc">Simulación SPICE de circuitos analógicos con análisis transient, AC, DC y barrido de parámetros.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Arduino IDE</div><div class="sk-card-desc">Programación de ESP32 y Arduino para proyectos de adquisición y control en tiempo real.</div></div>
+        <div class="sk-card"><div class="sk-card-name">VS Code</div><div class="sk-card-desc">Editor principal con extensiones para C++, PlatformIO, Git y edición de documentación.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Overleaf · LaTeX</div><div class="sk-card-desc">Redacción de informes técnicos y documentación científica con tipografía profesional.</div></div>
+        <div class="sk-card"><div class="sk-card-name">GitHub</div><div class="sk-card-desc">Control de versiones, repositorios de proyectos y colaboración en código con equipos.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Blynk</div><div class="sk-card-desc">Dashboard IoT para visualización de datos de sensores en tiempo real desde dispositivos móviles.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Make</div><div class="sk-card-desc">Automatización de flujos de trabajo entre APIs y servicios sin necesidad de servidores propios.</div></div>
+        <div class="sk-card"><div class="sk-card-name">EasyEDA</div><div class="sk-card-desc">Diseño de esquemáticos y layout PCB con integración directa a JLCPCB y LCSC para fabricación.</div></div>
+      </div>
+    </div>
+
+    <div class="sk-domain">
+      <div class="sk-domain-header">
+        <div class="sk-domain-icon">🧠</div>
+        <div class="sk-domain-name">Blandas</div>
+        <div class="sk-domain-count">7 habilidades</div>
+      </div>
+      <div class="sk-cards">
+        <div class="sk-card"><div class="sk-card-name">Resolución de problemas</div><div class="sk-card-desc">Metodología sistemática para diagnosticar fallas en circuitos y proponer soluciones validadas.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Aprendizaje autodidacta</div><div class="sk-card-desc">Dominio de herramientas y tecnologías nuevas a partir de documentación oficial y práctica directa.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Trabajo en equipo</div><div class="sk-card-desc">Coordinación con compañeros para dividir diseño, simulación, montaje y documentación.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Comunicación técnica</div><div class="sk-card-desc">Redacción de informes, presentación de resultados y explicación de conceptos complejos con claridad.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Adaptabilidad</div><div class="sk-card-desc">Ajuste rápido a nuevas metodologías como Lean Startup aplicadas al desarrollo de hardware.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Organización de proyectos</div><div class="sk-card-desc">Planificación de etapas, gestión de entregables y seguimiento de timelines en proyectos académicos.</div></div>
+        <div class="sk-card"><div class="sk-card-name">Creatividad tecnológica</div><div class="sk-card-desc">Diseño de soluciones originales combinando hardware analógico, firmware y conectividad IoT.</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<div class="div"></div>
+
+<!-- ═══════════ HERRAMIENTAS ═══════════ -->
+<div class="wrap fade-in">
+<section id="herramientas">
+  <div class="lbl">04 — Stack técnico</div>
+  <h2>Herramientas</h2>
+  <div class="tools-grid">
+    <div class="tc2"><div class="tc2-n">AD620AN</div><div class="tc2-t">Amp. de instrumentación</div></div>
+    <div class="tc2"><div class="tc2-n">EasyEDA</div><div class="tc2-t">Diseño PCB</div></div>
+    <div class="tc2"><div class="tc2-n">Fresadora CNC</div><div class="tc2-t">Fabricación PCB</div></div>
+    <div class="tc2"><div class="tc2-n">Generador de funciones</div><div class="tc2-t">Fuente de señales</div></div>
+    <div class="tc2"><div class="tc2-n">JLCPCB</div><div class="tc2-t">Fabricante industrial PCB</div></div>
+    <div class="tc2"><div class="tc2-n">LM35</div><div class="tc2-t">Sensor de temperatura</div></div>
+    <div class="tc2"><div class="tc2-n">LM741 / UA741</div><div class="tc2-t">Op-Amp propósito general</div></div>
+    <div class="tc2"><div class="tc2-n">Multímetro UNI-T</div><div class="tc2-t">Medición DC</div></div>
+    <div class="tc2"><div class="tc2-n">NE555P</div><div class="tc2-t">Temporizador analógico</div></div>
+    <div class="tc2"><div class="tc2-n">NI Multisim</div><div class="tc2-t">Simulación SPICE</div></div>
+    <div class="tc2"><div class="tc2-n">Osciloscopio Rigol</div><div class="tc2-t">Medición y análisis</div></div>
+    <div class="tc2"><div class="tc2-n">Overleaf / LaTeX</div><div class="tc2-t">Documentación técnica</div></div>
+    <div class="tc2"><div class="tc2-n">Protoboard</div><div class="tc2-t">Montaje de prototipos</div></div>
+    <div class="tc2"><div class="tc2-n">TL074ACN / TL084</div><div class="tc2-t">Quad Op-Amp JFET</div></div>
+  </div>
+</section>
+</div>
+
+<div class="div"></div>
+
+<!-- ═══════════ CONTACTO ═══════════ -->
+<div class="wrap fade-in">
+<section id="contacto">
+  <div class="lbl">05 — Contacto</div>
+  <h2>Contacto</h2>
+  <div class="cgrid">
+    <div>
+      <p class="cdesc">¿Tienes preguntas sobre alguno de los proyectos o sobre el proceso de diseño y validación? Escríbeme directamente.</p>
+      <div class="clist">
+        <div class="ci"><div class="ci-i">✉</div>u20241221589@usco.edu.co</div>
+        <div class="ci"><div class="ci-i">🎓</div>Universidad Surcolombiana · USCO · Neiva</div>
+        <div class="ci"><div class="ci-i">📚</div>Electrónica Analógica 3 · Ing. Julián Adolfo Ramírez</div>
+        <div class="ci"><div class="ci-i">👥</div>Equipo: Barrera · Cadena · Pérez · Olarte</div>
+      </div>
+    </div>
+    <div class="form">
+      <div class="fg"><label class="fl" for="c-nombre">Nombre</label><input id="c-nombre" type="text" class="fi" placeholder="Tu nombre completo"></div>
+      <div class="fg"><label class="fl" for="c-correo">Correo electrónico</label><input id="c-correo" type="email" class="fi" placeholder="tu@correo.com"></div>
+      <div class="fg"><label class="fl" for="c-mensaje">Mensaje</label><textarea id="c-mensaje" class="fta" placeholder="Escribe tu mensaje..."></textarea></div>
+      <button id="btn-enviar" class="btn-ol" onclick="enviarMensaje()">Enviar mensaje →</button>
+      <div id="form-aviso" style="display:none;font-family:var(--fm);font-size:.66rem;margin-top:.2rem;"></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer>
+  <div class="fl2">Daniel Stiven Olarte Fernández · 20241221589 · Electrónica Analógica 3 · 2025–2026</div>
+  <div class="fl2">Universidad Surcolombiana · USCO · Neiva, Colombia</div>
+</footer>
+
+<script>
+function togL(id){document.getElementById(id).classList.toggle('open');}
+function tog(id){document.getElementById(id).classList.toggle('open');}
+const obs=new IntersectionObserver((e)=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('visible');obs.unobserve(el.target);}});},{threshold:.07});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+const secs=document.querySelectorAll('section[id]');
+const lks=document.querySelectorAll('.nav-links a');
+function updateNav(){
+  const scrollY=window.scrollY;
+  let cur=secs[0]?secs[0].id:'';
+  secs.forEach(s=>{
+    const rect=s.getBoundingClientRect();
+    const top=rect.top+scrollY;
+    if(scrollY>=top-200)cur=s.id;
+  });
+  lks.forEach(a=>{
+    const active=a.getAttribute('href')==='#'+cur;
+    a.style.color=active?'var(--tx)':'';
+    a.style.fontWeight=active?'600':'';
+    a.style.background=active?'var(--sf)':'';
+  });
+}
+window.addEventListener('scroll',updateNav,{passive:true});
+updateNav();
+
+emailjs.init('sphJQgtQ-DTcwh_4t');
+
+function enviarMensaje(){
+  const nombre  = document.getElementById('c-nombre').value.trim();
+  const correo  = document.getElementById('c-correo').value.trim();
+  const mensaje = document.getElementById('c-mensaje').value.trim();
+  const aviso   = document.getElementById('form-aviso');
+  const btn     = document.getElementById('btn-enviar');
+
+  if(!nombre || !correo || !mensaje){
+    aviso.style.color='#b94a00';
+    aviso.textContent='Por favor completa todos los campos antes de enviar.';
+    aviso.style.display='block';
+    return;
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if(!emailRegex.test(correo)){
+    aviso.style.color='#b94a00';
+    aviso.textContent='Ingresa un correo electrónico válido.';
+    aviso.style.display='block';
+    return;
+  }
+
+  btn.textContent='Enviando...';
+  btn.disabled=true;
+  aviso.style.display='none';
+
+  emailjs.send('service_be6j8r6', 'template_opqlype', {
+    name:    nombre,
+    email:   correo,
+    message: mensaje
+  })
+  .then(function(){
+    aviso.style.color='#3a7a3a';
+    aviso.textContent='✓ Mensaje enviado correctamente. Te responderé pronto.';
+    aviso.style.display='block';
+    btn.textContent='Enviado ✓';
+    document.getElementById('c-nombre').value='';
+    document.getElementById('c-correo').value='';
+    document.getElementById('c-mensaje').value='';
+  }, function(error){
+    aviso.style.color='#b94a00';
+    aviso.textContent='Error al enviar. Intenta de nuevo o escríbeme directamente.';
+    aviso.style.display='block';
+    btn.textContent='Enviar mensaje →';
+    btn.disabled=false;
+    console.error('EmailJS error:', error);
+  });
+}
+</script>
+</body>
+</html>
